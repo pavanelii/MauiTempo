@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiTempo.MainPage">
+
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Previsão do Tempo"
+               FontSize="30"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" 
+               TextColor="#A0522D"/>
+
+            <Button Text="Obter Localização"
+                x:Name="btn_localizacao"
+                Clicked="btn_localizacao_Clicked"
+                BackgroundColor="#A0522D"
+                TextColor="White"
+                Padding="10"/>
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Latitude:" VerticalOptions="Center" />
+                <Entry x:Name="lbl_latitude"
+                   Text="37,421998333333335"
+                   Keyboard="Numeric"
+                   BackgroundColor="White"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Label Text="Longitude:" VerticalOptions="Center" />
+                <Entry x:Name="lbl_longitude"
+                   Text="-122,084"
+                   Keyboard="Numeric"
+                   BackgroundColor="White"/>
+            </StackLayout>
+
+            <Button Text="Obter Placemark"
+                x:Name="btn_placemark"
+                Clicked="btn_placemark_Clicked"
+                BackgroundColor="#A52A2A"
+                TextColor="White"
+                Padding="10"/>
+
+            <Label x:Name="lbl_reverso"
+               Text="Dados gerais de Local"
+               FontSize="14"
+               TextColor="#555"
+               Padding="10"/>
+
+            <Button Text="Obter Previsão do Tempo"
+                x:Name="btn_gettempo"
+                Clicked="btn_gettempo_Clicked"
+                BackgroundColor="#800000"
+                TextColor="White"
+                Padding="10"/>
+
+            <Label x:Name="lbl_previsao"
+               FontSize="16"
+               TextColor="#333"
+               Padding="10"/>
+
+            <CollectionView x:Name="tempoCollectionView"
+                        ItemsSource="{Binding TempoList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#ccc" 
+                           Padding="15" 
+                           Margin="5" 
+                           CornerRadius="10" 
+                           BackgroundColor="White">
+                            <StackLayout Spacing="10">
+                                <Label Text="{Binding Title}"
+                                   FontSize="20"
+                                   FontAttributes="Bold"
+                                   TextColor="#A0522D"/>
+
+                                <Label Text="{Binding Temperature}" 
+                                   FontSize="16" 
+                                   TextColor="#800000"/>
+                                <Label Text="{Binding Wind}" FontSize="14"/>
+                                <Label Text="{Binding Humidity}" FontSize="14"/>
+                                <Label Text="{Binding Visibility}" FontSize="14"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
