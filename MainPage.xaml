@@ -5,7 +5,7 @@
 
     <ScrollView>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Previsão do Tempo"
+            <Label Text="Previsão  do  Tempo"
                FontSize="30"
                FontAttributes="Bold"
                HorizontalOptions="Center" 
